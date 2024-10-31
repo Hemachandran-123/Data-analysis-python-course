@@ -2,12 +2,14 @@ import pandas as pd
 
 def analyze_demographics(file_path):
     data = pd.read_csv(file_path)
-    
     results = {}
+    
     results['race_count'] = data['race'].value_counts()
+    
     results['average_age_of_males'] = data[data['sex'] == 'Male']['age'].mean()
     
     total_edu = data['education'].count()
+    
     bach_count = data[data['education'] == 'Bachelors'].shape[0]
     results['bachelor_percentage'] = (bach_count / total_edu) * 100
     
